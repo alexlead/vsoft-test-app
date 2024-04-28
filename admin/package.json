@@ -1,0 +1,28 @@
+{
+  "name": "admin",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "proxy": {
+    "/api": {
+        "target": "http://localhost:5335",
+         "changeOrigin": true,
+         "secure": false,      
+         "ws": true
+     }
+},
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vue3-runtime-template": "^1.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "sass": "^1.75.0",
+    "vite": "^5.2.0"
+  }
+}
