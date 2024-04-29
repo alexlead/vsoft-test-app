@@ -40,3 +40,9 @@
 - `npm run dev`             - run admin app
 
 ![Client page screenshot](screenshot-client.png)
+
+
+## Docker compose
+
+### Compose All
+- `docker-compose up --build` - run in main folder for generate and run all docker containers

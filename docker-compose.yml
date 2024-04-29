@@ -1,0 +1,67 @@
+version: '3'
+
+services: 
+
+  back-end:
+    build: 
+      context: ./server
+    container_name: back-end
+    working_dir: /usr/src/app
+    networks: 
+      - node-network
+    volumes: 
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
+    ports: 
+      - "5335:5335"
+    command: npm run dev
+
+  front-end:
+    build: 
+      context: ./client
+    container_name: front-end
+    working_dir: /usr/src/app
+    networks: 
+      - node-network
+    volumes: 
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
+    ports: 
+      - "8082:8082"
+    command: npm run dev
+
+  admin-vue:
+    build: 
+      context: ./admin
+    container_name: admin-vue
+    working_dir: /usr/src/app
+    networks: 
+      - node-network
+    volumes: 
+      - ./admin:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
+    ports: 
+      - "8081:8081"
+    command: npm run dev
+
+  nginx:
+    build: 
+      context: nginx
+    container_name: nginx
+    restart: always
+    tty: true
+    ports: 
+      - "8000:80"
+    networks: 
+      - node-network
+    depends_on:
+       - back-end
+       - front-end
+       - admin-vue
+  
+networks: 
+  node-network:
+    driver: bridge
