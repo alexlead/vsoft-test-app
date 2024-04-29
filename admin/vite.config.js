@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/admin/',
   runtimeCompiler: true,
   resolve: {
     alias: {
@@ -13,7 +14,7 @@ export default defineConfig({
 
   server: {
     host: true,
-    port: 4173,
+    port: 8081,
     proxy: {
       '/api': {
         target: 'http://localhost:5335',

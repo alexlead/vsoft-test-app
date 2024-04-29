@@ -1,38 +1,67 @@
-version: '3.8'
+version: '3'
 
-services:
-  server:
+services: 
+
+  back-end:
     build: 
       context: ./server
-      dockerfile: Dockerfile
-    ports:
+    container_name: back-end
+    working_dir: /usr/src/app
+    networks: 
+      - node-network
+    volumes: 
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
+    ports: 
       - "5335:5335"
-    volumes:
-      - ./server:/app
+    command: npm run dev
 
-
-  admin:
-    build: 
-      context: ./admin
-      dockerfile: Dockerfile
-    ports:
-      - "8081:4173"
-    volumes:
-      - ./admin:/app
-    environment:
-      - NODE_ENV=production
-    depends_on:
-      - server
-
-  client:
+  front-end:
     build: 
       context: ./client
-      dockerfile: Dockerfile
-    ports:
-      - "8082:4173"
-    volumes:
-      - ./client:/app
-    environment:
-      - NODE_ENV=production
+    container_name: front-end
+    working_dir: /usr/src/app
+    networks: 
+      - node-network
+    volumes: 
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
+    ports: 
+      - "8082:8082"
+    command: npm run dev
+
+  admin-vue:
+    build: 
+      context: ./admin
+    container_name: admin-vue
+    working_dir: /usr/src/app
+    networks: 
+      - node-network
+    volumes: 
+      - ./admin:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
+    ports: 
+      - "8081:8081"
+    command: npm run dev
+
+  nginx:
+    build: 
+      context: nginx
+    container_name: nginx
+    restart: always
+    tty: true
+    ports: 
+      - "8000:80"
+    networks: 
+      - node-network
     depends_on:
-      - server
+       - back-end
+       - front-end
+       - admin-vue
+  
+networks: 
+  node-network:
+    driver: bridge
