@@ -40,3 +40,17 @@
 - `npm run dev`             - run admin app
 
 ![Client page screenshot](screenshot-client.png)
+
+
+## Docker compose
+
+### Compose All
+- `docker-compose up --build -d` - run in main folder for generate and run all docker containers
+
+### Compose separately
+
+#### Backend
+- `docker build -t [docker_hub_username]/[docker_hub_image] .` - run in folder server
+
+#### Frontend
+- `docker build -t [docker_hub_username]/[docker_hub_image] .` - run in folders admin and client
