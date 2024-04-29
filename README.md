@@ -46,3 +46,7 @@
 
 ### Compose All
 - `docker-compose up --build` - run in main folder for generate and run all docker containers
+
+#### URLs
+- http://localhost:8000/
+- http://localhost:8000/admin/
