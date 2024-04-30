@@ -35,11 +35,11 @@
 - simple-code-editor
 
  ### Install & Run
+(Required Run Server before start) 
 - `npm install`             - install npm modules
 - `npm run dev`             - run admin app
 
 ### URL
-
 - http://localhost:8081/admin
 
 ![Admin page screenshot](screenshot-admin.png)
@@ -50,6 +50,7 @@
 - vue3-runtime-template
 
  ### Install & Run
+ (Required Run Server before start) 
 - `npm install`             - install npm modules
 - `npm run dev`             - run admin app
 
