@@ -1,4 +1,4 @@
 {
-  "template": "<div class=\"post_card\"> \n<button>Post Id {{id}} </button>\n<h2 class=\"title\">{{title}}</h2> \n<p class=\"description\">{{description}}</p>\n<div class=\"card__header\">\n<img alt=\"Post Card Image\" :src=\"imageSrc\" />\n</div>\n\n</div>",
-  "style": ".post_card{\n   border: 1px solid green;\n   border-radius: 10px;\n   padding: 10px;\n}\n.post_card img{\nwidth: 100%;\n}\nbutton{\nbackground: green;\ncolor: white;\n}"
+  "template": "<div class=\"post_card\"> \n<h2 class=\"title\">{{title}}</h2> \n\n<div class=\"card__header\">\n<img alt=\"Post Card Image\" :src=\"imageSrc\" />\n<p class=\"description\">{{description}}</p>\n</div>\n<button>{{title}} </button>\n</div>",
+  "style": ".post_card{\n   border: 1px solid green;\n   border-radius: 10px;\n   padding: 10px;\n}\n.post_card img{\nwidth: 100%;\n}\nbutton{\nbackground: red;\ncolor: white;\n}"
 }

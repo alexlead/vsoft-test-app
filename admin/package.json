@@ -5,18 +5,20 @@
   "type": "module",
   "proxy": {
     "/api": {
-        "target": "http://localhost:5335",
-         "changeOrigin": true,
-         "secure": false,      
-         "ws": true
-     }
-},
+      "target": "http://localhost:5335",
+      "changeOrigin": true,
+      "secure": false,
+      "ws": true
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "highlight.js": "^11.9.0",
+    "simple-code-editor": "^2.0.9",
     "vue": "^3.4.21",
     "vue3-runtime-template": "^1.0.2"
   },

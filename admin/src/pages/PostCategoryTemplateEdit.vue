@@ -1,10 +1,10 @@
 <template>
   <div class="edit-block">
     <div class="edit-block__form">
-      <SFCEdit />
+      <SFCEdit @updater="updater"/>
     </div>
     <div class="edit-block__view">
-      <PostCategoryCard id="1" />
+      <PostCategoryCard id="1" :key="updateKey"/>
     </div>
   </div>
 </template>
@@ -18,6 +18,16 @@ export default {
     PostCategoryCard,
     SFCEdit,
   },
+  data() {
+    return{
+      updateKey: 0
+    }
+  },
+  methods: {
+    updater: function () {
+      this.updateKey++;
+    }
+  }
 };
 </script>
 <style lang='scss' scoped>
@@ -27,8 +37,15 @@ export default {
   margin: 10px auto;
   justify-content: center;
   gap: 10px;
-  div {
-    width: 400px;
+  .edit-block {
+    &__form{
+      width: 70%;
+
+    }
+    &__view{
+
+      width: 400px;
+    }
   }
 }
 </style>

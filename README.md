@@ -4,6 +4,15 @@
 - ExpressJs
 - VueJs
 
+## Run with Docker
+
+### Compose All
+- `docker-compose up --build` - run in main folder for generate and run all docker containers
+
+#### URLs
+- http://localhost:8000/
+- http://localhost:8000/admin/
+
 ## Server
 
 - NodeJs
@@ -23,10 +32,15 @@
 
 - VueJs
 - vue3-runtime-template
+- simple-code-editor
 
  ### Install & Run
 - `npm install`             - install npm modules
 - `npm run dev`             - run admin app
+
+### URL
+
+- http://localhost:8081/admin
 
 ![Admin page screenshot](screenshot-admin.png)
 
@@ -39,14 +53,8 @@
 - `npm install`             - install npm modules
 - `npm run dev`             - run admin app
 
+### URL
+
+http://localhost:8082
+
 ![Client page screenshot](screenshot-client.png)
-
-
-## Docker compose
-
-### Compose All
-- `docker-compose up --build` - run in main folder for generate and run all docker containers
-
-#### URLs
-- http://localhost:8000/
-- http://localhost:8000/admin/
